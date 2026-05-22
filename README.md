@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tisha Choksi — Portfolio
+
+Personal portfolio website for **Tisha Choksi**, an AI/ML Engineer specializing in GenAI, RAG architectures, and applied NLP.
+
+Built with [Next.js 16](https://nextjs.org) (App Router) and a glassmorphism design system with scroll-triggered animations, 3D tilt cards, and interactive mouse-trailing effects.
+
+## Tech Stack
+
+- **Framework** — Next.js 16.2.6 (App Router)
+- **Fonts** — Syne, DM Sans, JetBrains Mono via `next/font` (self-hosted, zero CLS)
+- **Styling** — CSS custom properties, CSS animations, inline styles with glassmorphism utilities
+- **Animation** — Intersection Observer (`useInView`), CSS keyframes, spring easing
+- **Build** — Turbopack (default in Next.js 16)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/
+│   ├── globals.css       # Design tokens, animations, glass utilities
+│   ├── layout.js         # Font loading, metadata, root layout
+│   └── page.js           # Main page (client component)
+├── components/
+│   ├── Nav.jsx           # Glass nav with active section indicator
+│   ├── Hero.jsx          # Mouse-parallax hero with typewriter
+│   ├── Experience.jsx    # Timeline layout with animated connectors
+│   ├── Projects.jsx      # Tilt cards with featured layout
+│   ├── ProjectModal.jsx  # Detail modal with ESC dismiss
+│   ├── Skills.jsx        # Categorized animated skill cards
+│   ├── Contact.jsx       # Two-column glass layout
+│   ├── Footer.jsx        # Minimal footer
+│   ├── SectionHeading.jsx
+│   └── TiltCard.jsx      # 3D mouse-tracking tilt wrapper
+├── data/
+│   └── portfolio.js      # All content centralized
+└── hooks/
+    └── useInView.js      # Intersection Observer hook
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Design
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Glassmorphism** — `backdrop-filter: blur(24px)` surfaces with `rgba(255,255,255,0.025)` backgrounds
+- **Accent** — Lime green (`#c2ff3d`) used sparingly for CTAs, section indicators, and hover states
+- **Animations** — Scroll-triggered fade-in-up reveals, mouse-following parallax, floating geometric shapes, pulsing glows
+- **Typography** — Syne (headings), DM Sans (body), JetBrains Mono (code/metrics)
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deploy to [Vercel](https://vercel.com):
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npx vercel
+```
